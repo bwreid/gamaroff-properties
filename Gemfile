@@ -6,6 +6,7 @@ gem 'jquery-rails'
 gem 'pg'
 gem 'haml'
 gem 'thin'
+gem 'omniauth-facebook'
 
 group :assets do
   gem 'sass-rails'
