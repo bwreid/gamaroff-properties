@@ -176,6 +176,8 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+    texticle (2.2.0)
+      activerecord (>= 3.0, < 4.1)
     thin (1.5.1)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -216,5 +218,6 @@ DEPENDENCIES
   rb-fsevent
   rspec-rails
   sass-rails
+  texticle
   thin
   uglifier

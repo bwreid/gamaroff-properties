@@ -1,9 +1,7 @@
 class HomeController < ApplicationController
   before_filter :logged_in
-
   def welcome
   end
-
 end
 
 def logged_in

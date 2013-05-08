@@ -3,7 +3,7 @@
 # Table name: properties
 #
 #  id          :integer          not null, primary key
-#  city        :string(255)
+#  hood        :string(255)
 #  address     :string(255)
 #  price       :decimal(, )
 #  description :string(255)
@@ -14,4 +14,11 @@
 
 class Property < ActiveRecord::Base
   attr_accessible :address, :description, :price, :image, :hood
+  def self.text_search(query)
+    if query.present?
+      advanced_search("#{query}:*")
+    else
+      scoped
+    end
+  end
 end

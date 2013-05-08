@@ -1,7 +1,17 @@
+= form_tag properties_path, method: :get do
+  .field
+    = text_field_tag :query, params[:query]
+    = submit_tag "Search", name: nil
+
 %h1
   Hi
   = session[:fb_user].extra.raw_info.first_name
-- Property.all.each do |property|
+- @properties.each do |property|
   %h3= property.address
+  %p= property.description
+  %p
+    %strong
+      = number_to_currency(property.price)
+      monthly
 
 = link_to('Signout', signout_path)

@@ -3,7 +3,7 @@
 # Table name: properties
 #
 #  id          :integer          not null, primary key
-#  city        :string(255)
+#  hood        :string(255)
 #  address     :string(255)
 #  price       :decimal(, )
 #  description :string(255)
