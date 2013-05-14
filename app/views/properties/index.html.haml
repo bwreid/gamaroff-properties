@@ -1,17 +1,38 @@
-= form_tag properties_path, method: :get do
-  .field
-    = text_field_tag :query, params[:query]
-    = submit_tag "Search", name: nil
+#hero
+  %h1.hero Gamaroff Properties
+  = link_to( "Login with Facebook", '/auth/facebook', class: 'facebook' )
 
-%h1
-  Hi
-  = session[:fb_user].extra.raw_info.first_name
-- @properties.each do |property|
-  %h3= property.address
-  %p= property.description
-  %p
-    %strong
-      = number_to_currency(property.price)
-      monthly
-
-= link_to('Signout', signout_path)
+#properties{style: 'display: none;'}
+  .row
+    .welcome
+      = image_tag(session[:fb_user].info.image)
+      %h2
+        You're logged in as
+        %strong= "#{session[:fb_user].extra.raw_info.name}."
+        = link_to( "Logout", signout_path, class: 'facebook' )
+  .row
+    = form_tag properties_path, method: :get do
+      .field
+        = text_field_tag :query, params[:query], placeholder: 'Search', id:'search_bar'
+      .alert
+        %p .
+  .row
+    .properties
+      - @properties.each do |property|
+        .property
+          .crop
+            = image_tag(property.image)
+          .descrip
+            %h3
+              = "#{property.address} - "
+              %span= property.hood
+            %p= property.description
+            %p
+              %strong
+                = number_to_currency(property.price)
+                monthly
+  %footer
+    .goodbye
+      %p copyright unreal apps inc.
+%script
+  app.properties_transition()

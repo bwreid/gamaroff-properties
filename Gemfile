@@ -7,7 +7,6 @@ gem 'pg'
 gem 'haml'
 gem 'thin'
 gem 'omniauth-facebook'
-gem 'texticle', require: 'texticle/rails'
 
 group :assets do
   gem 'sass-rails'
